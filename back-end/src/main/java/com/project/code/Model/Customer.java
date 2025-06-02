@@ -21,17 +21,24 @@ public class Customer {
 
     // Example: @NotNull(message = "Name cannot be null")
 
+    @NotNull(message = "Name cannot be null")
+    private String name;
+
 // 3. Add 'email' field:
 //    - Type: private String
 //    - This field cannot be empty, use the @NotNull annotation to enforce this rule.
-
     // Example: @NotNull(message = "Email cannot be null")
+
+    @NotNull(message = "Email cannot be null")
+    private String email;
 
 // 4. Add 'phone' field:
 //    - Type: private String
 //    - This field cannot be empty, use the @NotNull annotation to enforce this rule.
-
     // Example: @NotNull(message = "Phone cannot be null")
+
+    @NotNull(message = "Phone cannot be null")
+    private String phone;
 
 // 5. Add one-to-many relationship with orders:
 //    - A customer can have multiple orders.
@@ -41,6 +48,10 @@ public class Customer {
 
     // Example: @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     // Example: @JsonManagedReference
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Order> orders;
 
 // 6. Getters and Setters:
 //    - For each field ('id', 'name', 'email', 'phone'), add getter and setter methods.
@@ -56,6 +67,31 @@ public class Customer {
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }    
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }    
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }        
+
 // 7. Ensure to use proper annotations and validate constraints:
 //    - Use @NotNull for fields that cannot be empty like 'name', 'email', and 'phone'.
 //    - Make sure you add the correct annotations for entity mapping and relationship management like @Entity, @Id, @GeneratedValue, @OneToMany, and @JsonManagedReference.
