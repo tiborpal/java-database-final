@@ -3,6 +3,7 @@ package com.project.code.Model;
 import javax.persistence.*;
 
 
+
 @Entity
 public class Customer {
 
