@@ -1,12 +1,19 @@
 package com.project.code.Model;
 
+import javax.persistence.*;
 
+
+@Entity
 public class Customer {
 
 // 1. Add 'id' field: 
 //    - Type: private long 
 //    - It should be auto-incremented.
 //    - Use @Id to mark it as the primary key and @GeneratedValue(strategy = GenerationType.IDENTITY) to auto-increment it.
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
 // 2. Add 'name' field:
 //    - Type: private String
@@ -41,6 +48,14 @@ public class Customer {
 //    - Example: public String getName(), public void setName(String name)
 //    - Add getters and setters for 'email' and 'phone' fields as well.
 
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 // 7. Ensure to use proper annotations and validate constraints:
 //    - Use @NotNull for fields that cannot be empty like 'name', 'email', and 'phone'.
 //    - Make sure you add the correct annotations for entity mapping and relationship management like @Entity, @Id, @GeneratedValue, @OneToMany, and @JsonManagedReference.
